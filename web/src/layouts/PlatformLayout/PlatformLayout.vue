@@ -6,42 +6,16 @@ import { Button } from '~/components';
 
 <template>
   <header class="PlatformLayout-header">
-    <RouterLink
-      class="PlatformLayout-logo"
-      to="/"
-    >
-      <img
-        src="/img/logo.svg"
-        alt="Müller logo"
-        height="40"
-        width="40"
-      />
+    <RouterLink class="PlatformLayout-logo" to="/">
+      <img src="/img/logo.svg" alt="Müller logo" height="40" width="40" />
       Müller
     </RouterLink>
 
-    <Button
-      to="/feed"
-      is-nav
-      secondary
-    >
-      Feed
-    </Button>
+    <Button to="/feed" is-nav secondary> Feed </Button>
 
-    <Button
-      to="/timeline"
-      is-nav
-      secondary
-    >
-      Linha do Tempo
-    </Button>
+    <Button to="/timeline" is-nav secondary> Linha do Tempo </Button>
 
-    <Button
-      to="/genealogy"
-      is-nav
-      secondary
-    >
-      Árvore Genealógica
-    </Button>
+    <Button to="/genealogy" is-nav secondary> Árvore Genealógica </Button>
   </header>
 
   <main class="PlatformLayout-content">

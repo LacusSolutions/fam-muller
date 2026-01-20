@@ -6,11 +6,7 @@ import { StatsSection } from './StatsSection';
 
 <template>
   <div>
-    <img
-      class="mx-auto"
-      src="/img/watermill.png"
-      alt="water mill illustration"
-    />
+    <img class="mx-auto" src="/img/watermill.png" alt="water mill illustration" />
 
     <AboutSection />
     <StatsSection />

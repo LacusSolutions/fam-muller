@@ -7,33 +7,15 @@ import { Button } from '~/components';
 <template>
   <div class="HomeLayout-root">
     <header class="HomeLayout-header">
-      <RouterLink
-        class="logo"
-        to="/"
-      >
-        <img
-          src="/img/logo.svg"
-          alt="Müller logo"
-          height="60"
-          width="60"
-        />
+      <RouterLink class="logo" to="/">
+        <img src="/img/logo.svg" alt="Müller logo" height="60" width="60" />
         Müller
       </RouterLink>
 
       <div class="HomeLayout-nav">
-        <Button
-          secondary
-          href="#about"
-        >
-          Sobre a Família
-        </Button>
+        <Button secondary href="#about"> Sobre a Família </Button>
 
-        <Button
-          secondary
-          href="#stats"
-        >
-          Recursos da Plataforma
-        </Button>
+        <Button secondary href="#stats"> Recursos da Plataforma </Button>
 
         <Button href="/feed">Entrar</Button>
       </div>

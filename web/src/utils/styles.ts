@@ -1,17 +1,17 @@
 export type ClassValue =
-  | Record<string, undefined | boolean | null>
-  | ClassValue[]
-  | undefined
   | boolean
+  | ClassValue[]
+  | null
+  | Record<string, boolean | null | undefined>
   | string
-  | null;
+  | undefined;
 
-export function clsx(...classValues: ClassValue[]) {
+export function clsx(...classValues: ClassValue[]): string {
   const classNames: string[] = [];
 
-  classValues.forEach((value) => {
+  for (const value of classValues) {
     if (!value) {
-      return;
+      continue;
     }
 
     if (typeof value === 'string' && value.trim()) {
@@ -19,11 +19,13 @@ export function clsx(...classValues: ClassValue[]) {
     } else if (Array.isArray(value)) {
       classNames.push(clsx(value));
     } else if (typeof value === 'object') {
-      Object.entries(value).forEach(([value, condition]) => {
-        condition && classNames.push(value);
-      });
+      for (const [className, condition] of Object.entries(value)) {
+        if (condition) {
+          classNames.push(className);
+        }
+      }
     }
-  });
+  }
 
   return classNames.join(' ');
 }

@@ -13,7 +13,7 @@ const members = 80;
 const photos = 365;
 const users = 30;
 
-function truncateOverHundred(value: number) {
+function truncateOverHundred(value: number): string {
   const isOver100 = value > 100;
   const roundedValue = isOver100 ? floor(value, -2) : value;
   const stringValue = roundedValue.toString().concat(isOver100 ? '+' : '');
@@ -22,10 +22,7 @@ function truncateOverHundred(value: number) {
 </script>
 
 <template>
-  <section
-    id="stats"
-    class="HomePage-StatsSection-root"
-  >
+  <section id="stats" class="HomePage-StatsSection-root">
     <header class="HomePage-StatsSection-header">A História Sendo Escrita</header>
 
     <div class="HomePage-StatsSection-body">
@@ -38,10 +35,7 @@ function truncateOverHundred(value: number) {
 
       <dl>
         <dt aria-label="qunatidade de membros">
-          <UsersThreeIcon
-            color="currentcolor"
-            :size="72"
-          />
+          <UsersThreeIcon color="currentcolor" :size="72" />
         </dt>
         <dd>
           <span class="whitespace-nowrap">
@@ -53,20 +47,14 @@ function truncateOverHundred(value: number) {
         </dd>
 
         <dt aria-label="quantidade de fotos">
-          <ImagesSquareIcon
-            color="currentcolor"
-            :size="72"
-          />
+          <ImagesSquareIcon color="currentcolor" :size="72" />
         </dt>
         <dd>
           <strong>{{ truncateOverHundred(photos) }} fotos</strong> publicadas
         </dd>
 
         <dt aria-label="Number of users">
-          <ScrollIcon
-            color="currentcolor"
-            :size="72"
-          />
+          <ScrollIcon color="currentcolor" :size="72" />
         </dt>
         <dd>
           <strong>{{ truncateOverHundred(documents + medias) }}</strong> documentos, relatos e

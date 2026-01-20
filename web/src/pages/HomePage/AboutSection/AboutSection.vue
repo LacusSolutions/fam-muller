@@ -1,10 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section
-    id="about"
-    class="HomePage-AboutSection-root"
-  >
+  <section id="about" class="HomePage-AboutSection-root">
     <header class="HomePage-AboutSection-header">Sobre a Família Müller</header>
 
     <div class="HomePage-AboutSection-body">

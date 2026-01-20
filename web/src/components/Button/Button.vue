@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ButtonHTMLAttributes, computed } from 'vue';
-import { RouterLink, RouterLinkProps, useRoute } from 'vue-router';
+import { type ButtonHTMLAttributes, computed } from 'vue';
+import { RouterLink, type RouterLinkProps, useRoute } from 'vue-router';
 
 import { clsx } from '~/utils/styles';
 
 export interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
   href?: string;
   isNav?: boolean;
-  to?: RouterLinkProps['to'];
   secondary?: boolean;
+  to?: RouterLinkProps['to'];
 }
 
 export interface ButtonSlots {
@@ -38,30 +38,15 @@ const actualClasses = computed(() => {
 </script>
 
 <template>
-  <RouterLink
-    v-if="to"
-    v-bind="$attrs"
-    :class="actualClasses"
-    :to="to"
-  >
+  <RouterLink v-if="to" v-bind="$attrs" :class="actualClasses" :to="to">
     <slot />
   </RouterLink>
 
-  <a
-    v-else-if="href"
-    v-bind="$attrs"
-    :class="actualClasses"
-    :href="href"
-  >
+  <a v-else-if="href" v-bind="$attrs" :class="actualClasses" :href="href">
     <slot />
   </a>
 
-  <button
-    v-else
-    v-bind="$attrs"
-    :class="actualClasses"
-    :type="type ?? 'button'"
-  >
+  <button v-else v-bind="$attrs" :class="actualClasses" :type="type ?? 'button'">
     <slot />
   </button>
 </template>

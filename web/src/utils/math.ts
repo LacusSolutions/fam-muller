@@ -1,5 +1,5 @@
 function makeRoundingFunction(fn: (number: number) => number) {
-  return (value: number, precision = 0) => {
+  return (value: number, precision = 0): number => {
     const roundingFactor = Math.pow(10, precision);
     const nonDecimalsValue = fn(value * roundingFactor);
     const decimalsAdjustedValue = nonDecimalsValue / roundingFactor;

@@ -1,4 +1,11 @@
 import anyConfig from 'eslint-config-any';
 import { defineConfig } from 'eslint/config';
 
-export default defineConfig([...anyConfig.vue]);
+export default defineConfig([
+  ...anyConfig.vue,
+  {
+    rules: {
+      'import/namespace': 'off',
+    },
+  },
+]);
