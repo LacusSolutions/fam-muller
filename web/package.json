@@ -1,14 +1,18 @@
 {
-  "name": "fam-muller",
-  "version": "0.2.0",
+  "name": "@fam-muller/web",
+  "version": "0.2.1",
   "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint src/ --fix --ext .js,.jsx,.ts,.tsx,.vue"
-  },
+  "license": "UNLICENSED",
+  "author": "Julio L. Muller",
   "type": "module",
+  "scripts": {
+    "development": "vite --port 8081",
+    "dev": "bun run development",
+    "production": "vite preview --port 8081",
+    "prod": "bun run production",
+    "build": "vite build",
+    "lint": "eslint --fix src/ vite.config.ts"
+  },
   "dependencies": {
     "@headlessui/vue": "1.7.14",
     "@phosphor-icons/vue": "2.1.4",
