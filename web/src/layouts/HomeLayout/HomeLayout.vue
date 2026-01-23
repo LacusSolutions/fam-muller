@@ -28,6 +28,8 @@ import { Button } from '~/components';
 </template>
 
 <style scoped lang="scss">
+@reference '../../styles.scss';
+
 .HomeLayout-root {
   @apply flex-1 lg:container;
 }

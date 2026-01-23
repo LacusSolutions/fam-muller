@@ -52,6 +52,8 @@ const actualClasses = computed(() => {
 </template>
 
 <style lang="scss">
+@reference '../../styles.scss';
+
 .Button-root {
   @apply flex items-center justify-center h-12 rounded-md px-4 transition-colors font-bold text-center active:scale-[98%] active:filter active:brightness-[96%];
 

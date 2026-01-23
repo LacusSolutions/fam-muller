@@ -66,6 +66,8 @@ function truncateOverHundred(value: number): string {
 </template>
 
 <style scoped lang="scss">
+@reference '../../../styles.scss';
+
 .HomePage-StatsSection-root {
   @apply relative py-12;
 }

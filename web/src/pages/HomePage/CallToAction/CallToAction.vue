@@ -11,6 +11,8 @@ import { Button } from '~/components';
 </template>
 
 <style scoped lang="scss">
+@reference '../../../styles.scss';
+
 .HomePage-CallToAction-root {
   @apply flex flex-col items-center gap-8 pb-16 pt-8;
 

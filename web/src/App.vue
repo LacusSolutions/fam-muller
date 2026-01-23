@@ -13,11 +13,7 @@ const currentYear = new Date().getFullYear();
 </template>
 
 <style lang="scss">
-@import 'tailwindcss';
-
-body {
-  @apply min-h-screen bg-gray-50 text-gray-950 font-sans;
-}
+@reference './styles.scss';
 
 #app {
   @apply flex flex-col gap-8 min-h-screen;

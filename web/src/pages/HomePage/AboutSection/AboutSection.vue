@@ -31,6 +31,8 @@
 </template>
 
 <style scoped lang="scss">
+@reference '../../../styles.scss';
+
 .HomePage-AboutSection-root {
   @apply relative bg-current py-10 text-brand-900 shadow-[-50vw_0_currentcolor,50vw_0_currentcolor];
 }

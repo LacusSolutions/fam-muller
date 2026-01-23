@@ -15,6 +15,8 @@
 </template>
 
 <style scoped lang="scss">
+@reference '../../styles.scss';
+
 .GenealogyPage-root {
   @apply flex h-[60vh] flex-col justify-between lg:container;
 

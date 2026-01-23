@@ -24,6 +24,8 @@ import { Button } from '~/components';
 </template>
 
 <style scoped lang="scss">
+@reference '../../styles.scss';
+
 .PlatformLayout-header {
   @apply flex items-center gap-4 border-b border-b-gray-200 bg-white px-8 py-4;
 
