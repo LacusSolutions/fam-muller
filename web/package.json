@@ -11,30 +11,30 @@
     "production": "vite preview --port 30303",
     "prod": "bun run production",
     "build": "vue-tsc -b && vite build",
-    "lint": "eslint --fix src/ eslint.config.ts postcss.config.js tailwind.config.js vite.config.ts"
+    "lint": "eslint --fix src/ eslint.config.ts postcss.config.js vite.config.ts"
   },
   "dependencies": {
     "@headlessui/vue": "1.7.23",
     "@phosphor-icons/vue": "2.2.1",
-    "axios": "1.13.2",
+    "axios": "1.13.6",
     "pinia": "3.0.4",
-    "vue": "^3.5.27",
-    "vue-router": "^4.6.4"
+    "vue": "^3.5.29",
+    "vue-router": "^5.0.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/node": "^22.19.7",
-    "@vitejs/plugin-vue": "^6.0.3",
-    "@vue/tsconfig": "^0.8.1",
-    "eslint": "^9.39.2",
-    "eslint-config-any": "^2.3.0",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^22.19.13",
+    "@vitejs/plugin-vue": "^6.0.4",
+    "@vue/tsconfig": "^0.9.0",
+    "eslint": "^9.39.3",
+    "eslint-config-any": "^2.4.0",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
-    "vue-tsc": "^3.2.2"
+    "vue-tsc": "^3.2.5"
   }
 }
