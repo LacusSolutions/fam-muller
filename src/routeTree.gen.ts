@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MembrosIndexRouteImport } from './routes/membros/index'
+import { Route as LinhaDoTempoIndexRouteImport } from './routes/linha-do-tempo/index'
+import { Route as FeedIndexRouteImport } from './routes/feed/index'
+import { Route as ArvoreGenealogicaIndexRouteImport } from './routes/arvore-genealogica/index'
+import { Route as MembrosIdRouteImport } from './routes/membros/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MembrosIndexRoute = MembrosIndexRouteImport.update({
+  id: '/membros/',
+  path: '/membros/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinhaDoTempoIndexRoute = LinhaDoTempoIndexRouteImport.update({
+  id: '/linha-do-tempo/',
+  path: '/linha-do-tempo/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedIndexRoute = FeedIndexRouteImport.update({
+  id: '/feed/',
+  path: '/feed/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArvoreGenealogicaIndexRoute = ArvoreGenealogicaIndexRouteImport.update({
+  id: '/arvore-genealogica/',
+  path: '/arvore-genealogica/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembrosIdRoute = MembrosIdRouteImport.update({
+  id: '/membros/$id',
+  path: '/membros/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/membros/$id': typeof MembrosIdRoute
+  '/arvore-genealogica/': typeof ArvoreGenealogicaIndexRoute
+  '/feed/': typeof FeedIndexRoute
+  '/linha-do-tempo/': typeof LinhaDoTempoIndexRoute
+  '/membros/': typeof MembrosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/membros/$id': typeof MembrosIdRoute
+  '/arvore-genealogica': typeof ArvoreGenealogicaIndexRoute
+  '/feed': typeof FeedIndexRoute
+  '/linha-do-tempo': typeof LinhaDoTempoIndexRoute
+  '/membros': typeof MembrosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/membros/$id': typeof MembrosIdRoute
+  '/arvore-genealogica/': typeof ArvoreGenealogicaIndexRoute
+  '/feed/': typeof FeedIndexRoute
+  '/linha-do-tempo/': typeof LinhaDoTempoIndexRoute
+  '/membros/': typeof MembrosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/membros/$id'
+    | '/arvore-genealogica/'
+    | '/feed/'
+    | '/linha-do-tempo/'
+    | '/membros/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/membros/$id'
+    | '/arvore-genealogica'
+    | '/feed'
+    | '/linha-do-tempo'
+    | '/membros'
+  id:
+    | '__root__'
+    | '/'
+    | '/membros/$id'
+    | '/arvore-genealogica/'
+    | '/feed/'
+    | '/linha-do-tempo/'
+    | '/membros/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MembrosIdRoute: typeof MembrosIdRoute
+  ArvoreGenealogicaIndexRoute: typeof ArvoreGenealogicaIndexRoute
+  FeedIndexRoute: typeof FeedIndexRoute
+  LinhaDoTempoIndexRoute: typeof LinhaDoTempoIndexRoute
+  MembrosIndexRoute: typeof MembrosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,21 +117,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/membros/': {
+      id: '/membros/'
+      path: '/membros'
+      fullPath: '/membros/'
+      preLoaderRoute: typeof MembrosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linha-do-tempo/': {
+      id: '/linha-do-tempo/'
+      path: '/linha-do-tempo'
+      fullPath: '/linha-do-tempo/'
+      preLoaderRoute: typeof LinhaDoTempoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feed/': {
+      id: '/feed/'
+      path: '/feed'
+      fullPath: '/feed/'
+      preLoaderRoute: typeof FeedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/arvore-genealogica/': {
+      id: '/arvore-genealogica/'
+      path: '/arvore-genealogica'
+      fullPath: '/arvore-genealogica/'
+      preLoaderRoute: typeof ArvoreGenealogicaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/membros/$id': {
+      id: '/membros/$id'
+      path: '/membros/$id'
+      fullPath: '/membros/$id'
+      preLoaderRoute: typeof MembrosIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MembrosIdRoute: MembrosIdRoute,
+  ArvoreGenealogicaIndexRoute: ArvoreGenealogicaIndexRoute,
+  FeedIndexRoute: FeedIndexRoute,
+  LinhaDoTempoIndexRoute: LinhaDoTempoIndexRoute,
+  MembrosIndexRoute: MembrosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
