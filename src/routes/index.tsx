@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 
 function useCountUp(target: number, duration = 1500) {
   const [v, setV] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
   useEffect(() => {
     if (!ref.current || started.current) return;

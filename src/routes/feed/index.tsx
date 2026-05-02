@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { useFamilyStore } from "@/hooks/useFamilyStore";
-import { getMember, eventTypeMeta } from "@/data/mockData";
+import { getMember, eventTypeMeta, members } from "@/data/mockData";
 import type { Post, ReactionType } from "@/data/mockData";
 
 export const Route = createFileRoute("/feed/")({
@@ -140,7 +140,7 @@ function FeedPage() {
   const top3 = Object.entries(featured).sort((a, b) => b[1] - a[1]).slice(0, 3);
 
   const today = new Date();
-  const upcoming = (require("@/data/mockData").members as typeof import("@/data/mockData").members)
+  const upcoming = members
     .filter((m) => m.isActive)
     .map((m) => {
       const bd = new Date(m.birthDate);
