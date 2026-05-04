@@ -1,9 +1,13 @@
 {
   "name": "tanstack_start_ts",
+  "version": "auto",
   "private": true,
-  "sideEffects": false,
+  "license": "MIT",
+  "author": "Julio L. Muller",
+  "homepage": "https://fam-muller.vercel.app/",
   "type": "module",
   "scripts": {
+    "release": "semantic-release",
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
@@ -73,6 +77,10 @@
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@lovable.dev/vite-tanstack-config": "^1.5.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/node": "^22.19.17",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -84,6 +92,7 @@
     "eslint-plugin-react-refresh": "^0.4.26",
     "globals": "^15.15.0",
     "prettier": "^3.8.3",
+    "semantic-release": "^25.0.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.59.1",
     "vite": "^7.3.2"
