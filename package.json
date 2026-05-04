@@ -7,6 +7,7 @@
   "homepage": "https://fam-muller.vercel.app/",
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "release": "semantic-release",
     "dev": "vite dev",
     "build": "vite build",
@@ -88,6 +89,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.26",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
     "semantic-release": "^25.0.3",
     "tailwindcss": "^4.2.4",
