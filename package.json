@@ -15,7 +15,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "bun run lint:ci --fix",
-    "lint:ci": "eslint src/ eslint.config.js vite.config.ts"
+    "lint:ci": "eslint src/ eslint.config.js vite.config.ts",
+    "type:check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
