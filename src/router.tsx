@@ -1,7 +1,9 @@
-import { createRouter, useRouter } from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen";
+import { type AnyRouter, createRouter, useRouter } from '@tanstack/react-router';
+import type { ReactNode } from 'react';
 
-function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+import { routeTree } from './routeTree.gen';
+
+function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }): ReactNode {
   const router = useRouter();
 
   return (
@@ -54,14 +56,12 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
   );
 }
 
-export const getRouter = () => {
-  const router = createRouter({
+export const getRouter = (): AnyRouter => {
+  return createRouter({
     routeTree,
     context: {},
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
   });
-
-  return router;
 };
