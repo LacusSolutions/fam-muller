@@ -38,6 +38,7 @@ export const Route = createRootRoute({
           'Site oficial da Família Müller. Membros, linha do tempo, árvore genealógica e feed de memórias compartilhadas.',
       },
       { name: 'author', content: 'Família Müller' },
+      { name: 'google-site-verification', content: 'q9ilqug5angWDTiPbz1s7yftDp_clxmOpexouOzgnHM' },
       { property: 'og:title', content: 'Família Müller — Preservando memórias' },
       {
         property: 'og:description',
