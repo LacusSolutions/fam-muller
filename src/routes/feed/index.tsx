@@ -16,10 +16,12 @@ export const Route = createFileRoute('/feed/')({
   head: () => ({
     meta: [
       { title: 'Feed — Família Müller' },
-      { name: 'description', content: 'Compartilhamentos, fotos e mensagens da Família Müller.' },
+      { name: 'description', content: 'Compartilhamentos, fotos e mensagens da Família Müller — o dia a dia em postagens.' },
       { property: 'og:title', content: 'Feed — Família Müller' },
-      { property: 'og:description', content: 'O dia a dia em compartilhamentos.' },
+      { property: 'og:description', content: 'O dia a dia da Família Müller em compartilhamentos e fotos.' },
+      { property: 'og:url', content: 'https://fam-muller.lovable.app/feed' },
     ],
+    links: [{ rel: 'canonical', href: 'https://fam-muller.lovable.app/feed' }],
   }),
   component: FeedPage,
 });
@@ -75,7 +77,7 @@ function PostCard({ post }: { post: Post }): ReactNode {
             <img
               key={i}
               src={img}
-              alt=""
+              alt={`Foto compartilhada por ${author?.fullName ?? 'membro da família'}`}
               loading="lazy"
               className="rounded-lg w-full aspect-video object-cover"
             />

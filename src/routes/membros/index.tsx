@@ -19,10 +19,12 @@ export const Route = createFileRoute('/membros/')({
   head: () => ({
     meta: [
       { title: 'Membros — Família Müller' },
-      { name: 'description', content: 'Conheça os membros das quatro gerações da Família Müller.' },
+      { name: 'description', content: 'Conheça os membros das quatro gerações da Família Müller — biografias, fotos e linhagem.' },
       { property: 'og:title', content: 'Membros — Família Müller' },
-      { property: 'og:description', content: 'Quatro gerações de história.' },
+      { property: 'og:description', content: 'Quatro gerações de história, perfis e fotos da Família Müller.' },
+      { property: 'og:url', content: 'https://fam-muller.lovable.app/membros' },
     ],
+    links: [{ rel: 'canonical', href: 'https://fam-muller.lovable.app/membros' }],
   }),
   component: MembersPage,
 });
@@ -107,9 +109,9 @@ function MembersPage(): ReactNode {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-display text-lg font-semibold leading-tight group-hover:text-primary">
+                    <h2 className="font-display text-lg font-semibold leading-tight group-hover:text-primary">
                       {m.fullName}
-                    </h3>
+                    </h2>
                     <p className="text-xs text-muted-foreground mt-1">
                       {by} – {dy ?? 'presente'}
                     </p>

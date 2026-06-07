@@ -28,12 +28,13 @@ export const Route = createFileRoute('/arvore-genealogica/')({
       { title: 'Árvore Genealógica — Família Müller' },
       {
         name: 'description',
-        content:
-          'Explore as quatro gerações da Família Müller em uma árvore genealógica interativa.',
+        content: 'Explore as quatro gerações da Família Müller em uma árvore genealógica interativa.',
       },
       { property: 'og:title', content: 'Árvore Genealógica — Família Müller' },
-      { property: 'og:description', content: 'Quatro gerações conectadas.' },
+      { property: 'og:description', content: 'Quatro gerações conectadas em uma árvore interativa.' },
+      { property: 'og:url', content: 'https://fam-muller.lovable.app/arvore-genealogica' },
     ],
+    links: [{ rel: 'canonical', href: 'https://fam-muller.lovable.app/arvore-genealogica' }],
   }),
   component: TreePageWrapper,
 });

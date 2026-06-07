@@ -31,40 +31,25 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Família Müller — Preservando memórias' },
-      {
-        name: 'description',
-        content:
-          'Site oficial da Família Müller. Membros, linha do tempo, árvore genealógica e feed de memórias compartilhadas.',
-      },
       { name: 'author', content: 'Família Müller' },
       { name: 'google-site-verification', content: 'q9ilqug5angWDTiPbz1s7yftDp_clxmOpexouOzgnHM' },
-      { property: 'og:title', content: 'Família Müller — Preservando memórias' },
-      {
-        property: 'og:description',
-        content:
-          'Site oficial da Família Müller. Membros, linha do tempo, árvore genealógica e feed de memórias compartilhadas.',
-      },
       { property: 'og:type', content: 'website' },
-      { name: 'twitter:title', content: 'Família Müller — Preservando memórias' },
-      {
-        name: 'twitter:description',
-        content:
-          'Site oficial da Família Müller. Membros, linha do tempo, árvore genealógica e feed de memórias compartilhadas.',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/00efd663-8216-4f3e-a924-88d0cdf4fe27/id-preview-015baa27--f471ecf4-603a-441f-8b32-db03ac595f1b.lovable.app-1777739284361.png',
-      },
-      {
-        name: 'twitter:image',
-        content:
-          'https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/00efd663-8216-4f3e-a924-88d0cdf4fe27/id-preview-015baa27--f471ecf4-603a-441f-8b32-db03ac595f1b.lovable.app-1777739284361.png',
-      },
+      { property: 'og:site_name', content: 'Família Müller' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [{ rel: 'stylesheet', href: appCss }],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            { '@type': 'WebSite', name: 'Família Müller', url: 'https://fam-muller.lovable.app' },
+            { '@type': 'Organization', name: 'Família Müller', url: 'https://fam-muller.lovable.app' },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

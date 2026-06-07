@@ -24,11 +24,13 @@ export const Route = createFileRoute('/linha-do-tempo/')({
       { title: 'Linha do Tempo — Família Müller' },
       {
         name: 'description',
-        content: 'Cada momento que moldou a história da Família Müller, em ordem cronológica.',
+        content: 'Cada momento que moldou a história da Família Müller, em ordem cronológica — nascimentos, casamentos e reencontros.',
       },
       { property: 'og:title', content: 'Linha do Tempo — Família Müller' },
-      { property: 'og:description', content: 'A história visual da Família Müller.' },
+      { property: 'og:description', content: 'A história visual da Família Müller em ordem cronológica.' },
+      { property: 'og:url', content: 'https://fam-muller.lovable.app/linha-do-tempo' },
     ],
+    links: [{ rel: 'canonical', href: 'https://fam-muller.lovable.app/linha-do-tempo' }],
   }),
   component: TimelinePage,
 });
@@ -157,7 +159,7 @@ function TimelinePage(): ReactNode {
                             {date.toLocaleDateString('pt-BR')}
                           </time>
                         </div>
-                        <h3 className="font-display text-xl font-semibold">{e.title}</h3>
+                        <h2 className="font-display text-xl font-semibold">{e.title}</h2>
                         <p className="text-sm text-muted-foreground mt-1">{e.description}</p>
                         {e.attachments.photos.length > 0 && (
                           <div className="mt-3 grid grid-cols-2 gap-2">
@@ -165,7 +167,7 @@ function TimelinePage(): ReactNode {
                               <img
                                 key={idx}
                                 src={p}
-                                alt=""
+                                alt={`Foto do evento ${e.title}`}
                                 loading="lazy"
                                 className="rounded-md aspect-video object-cover"
                               />
