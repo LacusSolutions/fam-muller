@@ -1,0 +1,13 @@
+# Família Müller
+
+> Site oficial da Família Müller — quatro gerações de história, memórias, árvore genealógica e momentos compartilhados, preservados desde 1890.
+
+A Família Müller mantém este espaço para registrar biografias, eventos marcantes, fotos e relatos das quatro gerações da família. O conteúdo é público e em português.
+
+## Pages
+
+- [Início](/): História da família, galeria de fotos e destaques recentes.
+- [Membros](/membros): Lista completa dos membros das quatro gerações com biografias e linhagem.
+- [Linha do Tempo](/linha-do-tempo): Eventos em ordem cronológica — nascimentos, casamentos, reencontros e marcos.
+- [Árvore Genealógica](/arvore-genealogica): Árvore interativa conectando as gerações.
+- [Feed](/feed): Compartilhamentos, fotos e mensagens recentes da família.

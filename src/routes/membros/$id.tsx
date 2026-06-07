@@ -14,17 +14,38 @@ export const Route = createFileRoute('/membros/$id')({
     if (!m) throw notFound();
     return { member: m };
   },
-  head: ({ loaderData }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.member.fullName} — Família Müller` },
-          { name: 'description', content: loaderData.member.bio.slice(0, 150) },
-          { property: 'og:title', content: `${loaderData.member.fullName} — Família Müller` },
-          { property: 'og:description', content: loaderData.member.bio.slice(0, 150) },
-          { property: 'og:image', content: loaderData.member.photo },
-        ]
-      : [],
-  }),
+  head: ({ params, loaderData }) => {
+    if (!loaderData) return { meta: [] };
+    const m = loaderData.member;
+    const url = `https://fam-muller.lovable.app/membros/${params.id}`;
+    return {
+      meta: [
+        { title: `${m.fullName} — Família Müller` },
+        { name: 'description', content: m.bio.slice(0, 150) },
+        { property: 'og:title', content: `${m.fullName} — Família Müller` },
+        { property: 'og:description', content: m.bio.slice(0, 150) },
+        { property: 'og:type', content: 'profile' },
+        { property: 'og:url', content: url },
+        { property: 'og:image', content: m.photo },
+        { name: 'twitter:image', content: m.photo },
+      ],
+      links: [{ rel: 'canonical', href: url }],
+      scripts: [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: m.fullName,
+            image: m.photo,
+            birthDate: m.birthDate,
+            ...(m.deathDate ? { deathDate: m.deathDate } : {}),
+            description: m.bio,
+          }),
+        },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="mx-auto max-w-2xl px-6 py-20 text-center">
       <h1 className="font-display text-3xl">Membro não encontrado</h1>
@@ -183,7 +204,7 @@ function MemberProfile(): ReactNode {
                 <p className="text-xs text-muted-foreground">
                   {new Date(e.date).toLocaleDateString('pt-BR')}
                 </p>
-                <h3 className="font-semibold">{e.title}</h3>
+                <p className="font-semibold">{e.title}</p>
                 <p className="text-sm text-muted-foreground">{e.description}</p>
               </li>
             ))}

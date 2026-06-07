@@ -12,13 +12,27 @@ import { events, eventTypeMeta, galleryImages, getMember, members, posts } from 
 export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
-      { title: 'Família Müller — Início' },
+      { title: 'Família Müller — História e Genealogia' },
       {
         name: 'description',
-        content: 'Conheça a história, os membros e os momentos marcantes da Família Müller.',
+        content:
+          'Conheça a história, os membros, a árvore genealógica e os momentos marcantes da Família Müller, preservados em quatro gerações.',
       },
-      { property: 'og:title', content: 'Família Müller — Início' },
-      { property: 'og:description', content: 'Conheça a história da Família Müller.' },
+      { property: 'og:title', content: 'Família Müller — História e Genealogia' },
+      {
+        property: 'og:description',
+        content: 'Quatro gerações de história, memórias e árvore genealógica da Família Müller.',
+      },
+      { property: 'og:url', content: 'https://fam-muller.lovable.app/' },
+      { name: 'twitter:title', content: 'Família Müller — História e Genealogia' },
+      {
+        name: 'twitter:description',
+        content: 'Quatro gerações de história, memórias e árvore genealógica da Família Müller.',
+      },
+    ],
+    links: [
+      { rel: 'canonical', href: 'https://fam-muller.lovable.app/' },
+      { rel: 'preload', as: 'image', href: heroImg, fetchpriority: 'high' },
     ],
   }),
   component: HomePage,
@@ -82,7 +96,7 @@ function HomePage(): ReactNode {
     <>
       {/* Hero */}
       <section className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
-        <img src={heroImg} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImg} alt="" width={1920} height={1080} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
           <p className="mb-4 font-sans text-xs font-medium uppercase tracking-[0.4em] text-accent animate-fade-in-up">
